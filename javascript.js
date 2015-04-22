@@ -3,6 +3,7 @@
 ************************/
 
 function handleUpdateClick() {
+  // handleUpdateClick
   if (confirm("Are you sure you want to append text?")) {
     var text = document.getElementById('text').value;
     var color = document.getElementById('color').value;
