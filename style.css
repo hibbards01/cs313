@@ -1,4 +1,7 @@
-div {
-  background-color: #CCCCFF;
-  width: 400px;
+body {
+  background-color: #700000;
+}
+
+.jumbotron {
+  background-color: #FFCC00;
 }
