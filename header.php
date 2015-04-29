@@ -17,10 +17,10 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li <?php echo ($isProfile == true) ? "class='active'" : ""; ?>>
+        <li <?php echo ($isProfile === true) ? "class='active'" : ""; ?>>
           <a href="index.php">Profile</a>
         </li>
-        <li <?php echo ($isProfile == false) ? "class='active'" : ""; ?>>
+        <li <?php echo ($isProfile === false) ? "class='active'" : ""; ?>>
           <a href="assignments.php">Assignments</a>
         </li>
       </ul>
