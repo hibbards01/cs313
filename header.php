@@ -4,7 +4,7 @@
   $isProfile = true;  // Defualt
 
   // Now change which page is active!
-  if ($page === '/php/index.php') {
+  if (strpos($page, 'index.php') !== false) {
     $isProfile = true;
   } else {
     $isProfile = false;
