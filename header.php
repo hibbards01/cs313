@@ -6,7 +6,7 @@
   // Now change which page is active!
   if (strpos($page, 'index.php') !== false) {
     $isProfile = true;
-  } else {
+  } elseif (strpos($page, 'assignments.php') !== false) {
     $isProfile = false;
   }
 ?>

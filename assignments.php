@@ -14,6 +14,9 @@
     <div class="jumbotron">
       <h1>Assignments</h1>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-body">Coming soon!</div>
+    </div>
   </div>
 </body>
 </html>
