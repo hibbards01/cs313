@@ -5,3 +5,7 @@ body {
 .jumbotron {
   background-color: #FFFF99;
 }
+
+.black-text {
+  color: #330000;
+}
