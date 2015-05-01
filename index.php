@@ -24,10 +24,16 @@
         <div class="panel panel-default">
           <div class="panel-heading"><h2>About me</h2></div>
           <div class="panel-body">
-            <p>I am a Computer Science major at BYU-I. I love to program and I love to learn knew things.
+            <p>I was born in Beaver, Utah. Which I then moved to Idaho and have lived most of my life in Idaho.
             I can play up to several instruments including: piano, singing, euphonium, tuba, and the bagpipes. I
-            am married to my beauitful wife Katie. We have been married since 2014. I love to have fun and in helping
-            people.</p>
+            am married to my beauitful wife Katie. We have been married since 2014. I love reading fantasy and
+            sci-fi books especially <i>The Lord of the Rings Trilogy</i></p>
+            <h3>Interest in Computer Science</h3>
+            <p>I have always loved computers and how they work. I love to be up to date on new things and new technology. When
+            I got to college I took a Networking class and I loved the concept of programming the router to
+            do certain things for traffic. I then decided to see more the Computer Science department and I loved it
+            ever since. I love to develop software that people can utilize. Creating knew ways and ideas that can solve
+            problems. Learning knew languages is something that I love to do all the time.</p>
           </div>
         </div>
       </div>
@@ -79,6 +85,14 @@
         </div>
       </div>
     </div>
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-defualt">
+
+        </div>
+      </div>
+    </div> -->
   </div>
+  <footer class="copyright">Copyright &#169; 2015 Samuel Hibbard</footer>
 </body>
 </html>

@@ -18,5 +18,6 @@
       <div class="panel-body">Coming soon!</div>
     </div>
   </div>
+  <footer class="copyright">Copyright &#169; 2015 Samuel Hibbard</footer>
 </body>
 </html>

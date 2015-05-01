@@ -9,3 +9,9 @@ body {
 .black-text {
   color: #330000;
 }
+
+.copyright {
+  color: #FFFFFF;
+  text-align: right;
+  padding-right: 2px;
+}
