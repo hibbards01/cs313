@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- index.html -->
+<!-- This will be the home page. This will include my profile. -->
 <html>
 <head>
   <title>Home Page</title>
