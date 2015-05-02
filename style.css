@@ -15,3 +15,23 @@ body {
   text-align: right;
   padding-right: 2px;
 }
+
+.center-header-text {
+  text-align: center;
+}
+
+.bigger-text {
+  font-size: 150%
+}
+
+.border {
+  border-right: 1px solid black;
+}
+
+.darken {
+  transition: all 0.3s ease 0s;
+}
+
+.darken:hover {
+  background: #FF6666;
+}

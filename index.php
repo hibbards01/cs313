@@ -85,13 +85,28 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-defualt">
-
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2  class="center-header-text">More Info</h2>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4 border darken">
+                <h4>Email: hibbards01@gmail.com</h4>
+              </div>
+              <div class="col-md-4 border darken">
+                <h4>Phone: 918-645-7866</h4>
+              </div>
+              <div class="col-md-4">
+                <a class="bigger-text" href="https://www.linkedin.com/pub/samuel-hibbard/72/561/394">Linkedin</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
   <footer class="copyright">Copyright &#169; 2015 Samuel Hibbard</footer>
 </body>
