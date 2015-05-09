@@ -1,13 +1,15 @@
 <?php
   // Grab the url!
   $page = $_SERVER['REQUEST_URI'];
-  $isProfile = true;  // Defualt
+  $isProfile = 0;  // Defualt
 
   // Now change which page is active!
   if (strpos($page, 'index.php') !== false) {
-    $isProfile = true;
+    $isProfile = 0;
   } elseif (strpos($page, 'assignments.php') !== false) {
-    $isProfile = false;
+    $isProfile = 1;
+  } else {
+    $isProfile = 2;
   }
 ?>
 <nav class="navbar navbar-inverse">
@@ -17,10 +19,10 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li <?php echo ($isProfile === true) ? "class='active'" : ""; ?>>
+        <li <?php echo ($isProfile === 0) ? "class='active'" : ""; ?>>
           <a href="index.php">Profile</a>
         </li>
-        <li <?php echo ($isProfile === false) ? "class='active'" : ""; ?>>
+        <li <?php echo ($isProfile === 1) ? "class='active'" : ""; ?>>
           <a href="assignments.php">Assignments</a>
         </li>
       </ul>

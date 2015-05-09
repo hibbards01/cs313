@@ -35,3 +35,48 @@ body {
 .darken:hover {
   background: #FF6666;
 }
+
+.panel-color {
+  background-color: #FFFF99!important;
+}
+
+.panel-color-head {
+  background-color: #FFFF66!important;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 477px;
+  height: 621px;
+}
+
+.form-group {
+  display: inline-block;
+}
+
+.small-box {
+  width: 120px;
+}
+
+.big-box {
+  width: 500px;
+}
+
+.que4a {
+  display: none;
+}
+
+.submit {
+  margin-left: 15px;
+}
+
+.color-red {
+  color: red;
+}
+
+p.inline {
+  display: none;
+  margin-left: 20px;
+}
