@@ -4,13 +4,8 @@
 *******************************/
 $(document).ready(function() {
 
-  // $("div.container").click(function(event) {
-  //   var pos = $(this).position;
-  //   alert("left: " + pos.left + " top: " + pos.top);
-  // });
-
   // If question 4 is yes display another question
-  $("input[name=question4]").click(function() {
+  $("input[name=question4]").change(function() {
     // Check if it is marked yes...
     if ($(this).val() == 'yes') {
       $("div.que4a").css('display', 'inline');
@@ -25,6 +20,7 @@ $(document).ready(function() {
     var submit = checkRadio($(this).find('input[name=question3]'), $(this));
     submit = checkRadio($(this).find('input[name=question4]'), $(this));
     submit = checkRadio($(this).find('input[name=question5]'), $(this));
+    submit = checkRadio($(this).find('input[name=question1]'), $(this));
 
     // If this is true then don't submit it!
     if (!submit) {

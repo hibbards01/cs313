@@ -22,8 +22,9 @@
         <h1>Parking Services Survey</h1>
       </div>
       <div class="panel panel-body panel-color">
-        <form role="form">
+        <form role="form" action="submit.php" method="post">
           <label>1. Which area do you park?</label>
+          <span style="display:none" name="question1" class="glyphicon glyphicon-remove color-red"></span>
           <br />
           <br />
           <img width="500" height="700" src="campus_map.jpg" alt="Campus Map">
@@ -35,7 +36,7 @@
               <input type="radio" name="question1" value="blue">Blue
             </label>
             <label class="btn btn-primary">
-              <input type="radio" name="question1" value="yello">Yellow
+              <input type="radio" name="question1" value="yellow">Yellow
             </label>
             <label class="btn btn-primary">
               <input type="radio" name="question1" value="brown">Brown
@@ -71,26 +72,22 @@
           <label>3. Do you leave campus and park again more than once a day?</label>
           <span style="display:none" name="question3" class="glyphicon glyphicon-remove color-red"></span>
           <br />
-          <div class="form-group">
-            <div class="radio">
-              <label><input type="radio" name="question3" value="yes">Yes</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="question3" value="no">No</label>
-            </div>
+          <div class="btn-group btn-group-vertical" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input type="radio" name="question3" value="yes">Yes</label>
+            <label class="btn btn-primary">
+              <input type="radio" name="question3" value="no">No</label>
           </div>
           <br />
           <br />
           <label>4. Did you see or have a problem with parking here on campus?</label>
           <span style="display:none" name="question4" class="glyphicon glyphicon-remove color-red"></span>
           <br />
-          <div class="form-group">
-            <div class="radio">
-              <label><input type="radio" name="question4" value="yes">Yes</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="question4" value="no">No</label>
-            </div>
+          <div class="btn-group btn-group-vertical" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input type="radio" name="question4" value="yes">Yes</label>
+            <label class="btn btn-primary">
+              <input type="radio" name="question4" value="no">No</label>
           </div>
           <br />
           <br />
@@ -112,13 +109,11 @@
           <label>5. Would you use an app to find a parking space for you?</label>
           <span style="display:none" name="question5" class="glyphicon glyphicon-remove color-red"></span>
           <br />
-          <div class="form-group">
-            <div class="radio">
-              <label><input type="radio" name="question5" value="yes">Yes</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="question5" value="no">No</label>
-            </div>
+          <div class="btn-group btn-group-vertical" data-toggle="buttons">
+            <label class="btn btn-primary">
+              <input type="radio" name="question5" value="yes">Yes</label>
+            <label class="btn btn-primary">
+              <input type="radio" name="question5" value="no">No</label>
           </div>
           <br />
           <br />
@@ -128,16 +123,15 @@
             <textarea class="form-control" rows="5" name="question6" id="comment"></textarea>
           </div>
         </div>
-        <button type="submit" class="btn btn-default submit">Submit</button>
+        <button type="submit" class="btn btn-primary submit">Submit</button>
       </form>
       <br />
       <br />
       <p class="color-red inline">You must answer those questions marked with</p>
       <span style="display:none" name="error" class="glyphicon glyphicon-remove color-red"></span>
       <br />
-      <ul class="pager">
-        <li><a href="form.php">Previous</a></li>
-      </ul>
+      <br />
+      <br />
     </div>
   </div>
 </body>
