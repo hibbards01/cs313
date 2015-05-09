@@ -4,6 +4,11 @@
 *******************************/
 $(document).ready(function() {
 
+  // $("div.container").click(function(event) {
+  //   var pos = $(this).position;
+  //   alert("left: " + pos.left + " top: " + pos.top);
+  // });
+
   // If question 4 is yes display another question
   $("input[name=question4]").click(function() {
     // Check if it is marked yes...
