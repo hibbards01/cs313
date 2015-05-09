@@ -49,16 +49,19 @@
           <br />
           <label>2. At what time of day do you park?&nbsp;&nbsp;</label>
           <div class="form-group small-box">
-            <select class="form-control" id="sel1" name="time">
+            <select class="form-control" id="sel1" name="question2">
               <?php
                 for ($i=6; $i < 24; $i++) {
-                  echo "<option>";
+                  echo "<option value='";
 
                   if ($i > 12) {
                     $n = $i - 12;
-                    echo "$n:00 pm";
+                    echo "$n:00 pm'>$n:00 pm";
                   } else {
                     echo "$i:00 ";
+                    echo ($i == 12) ? "pm" : "am";
+
+                    echo "'>$i:00 ";
                     echo ($i == 12) ? "pm" : "am";
                   }
 
