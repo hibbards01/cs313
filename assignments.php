@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!-- assignments.html -->
 <html>
@@ -16,7 +17,14 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
-        <a href="form.php">Parking Services Survey</a>
+        <a href="<?php
+                  if ($_SESSION["submit"] == 1) {
+                    echo "submit.php";
+                  } else {
+                    echo "form.php";
+                  }
+                ?>">Parking Services Survey</a>
+        <a class="align-right" href="submit.php">Click here to see results</a>
       </div>
     </div>
   </div>

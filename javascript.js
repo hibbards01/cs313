@@ -15,23 +15,23 @@ $(document).ready(function() {
   });
 
   // Grab all the input tags when you sumbit!
-  // $("form").submit(function(event) {
-  //   // Now check it!
-  //   var submit = checkRadio($(this).find('input[name=question3]'), $(this));
-  //   submit = checkRadio($(this).find('input[name=question4]'), $(this));
-  //   submit = checkRadio($(this).find('input[name=question5]'), $(this));
-  //   submit = checkRadio($(this).find('input[name=question1]'), $(this));
+  $("form").submit(function(event) {
+    // Now check it!
+    var submit = checkRadio($(this).find('input[name=question3]'), $(this));
+    submit = checkRadio($(this).find('input[name=question4]'), $(this));
+    submit = checkRadio($(this).find('input[name=question5]'), $(this));
+    submit = checkRadio($(this).find('input[name=question1]'), $(this));
 
-  //   // If this is true then don't submit it!
-  //   if (!submit) {
-  //     // Pause the submit
-  //     event.preventDefault();
+    // If this is true then don't submit it!
+    if (!submit) {
+      // Pause the submit
+      event.preventDefault();
 
-  //     // Show the error message
-  //     $("p.inline").attr('style', 'display: inline');
-  //     $("span[name=error]").css('display', 'inline');
-  //   };
-  // });
+      // Show the error message
+      $("p.inline").attr('style', 'display: inline');
+      $("span[name=error]").css('display', 'inline');
+    };
+  });
 });
 
 /**************************

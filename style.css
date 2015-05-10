@@ -80,3 +80,7 @@ p.inline {
   display: none;
   margin-left: 20px;
 }
+
+.align-right {
+  margin-left: 800px;
+}
