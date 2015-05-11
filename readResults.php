@@ -23,7 +23,7 @@
         $text = fgets($file);
 
         if ($i != 0 && preg_match('/yes/', $text) &&
-            $i != 4 && $i != 1) {
+            $i != 4 && $i != 1 && $i != 6) {
           switch ($i) {
             case 2:
               $q3++;
