@@ -50,7 +50,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="2013-11-08_0001.jpg" alt="Engagement Pic.">
+              <img src="lib/2013-11-08_0001.jpg" alt="Engagement Pic.">
               <div class="carousel-caption">
                 <h3>Engagement Picture</h3>
                 <p>We did our pictures around Rexburg during the fall.</p>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="item">
-              <img src="my_house.jpg" alt="My House">
+              <img src="lib/my_house.jpg" alt="My House">
               <div class="carousel-caption">
                 <h3>Our Apartment</h3>
                 <p>We are currently living in this cabin. It is really nice and homey.</p>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="item">
-              <img src="20140111-wedding-4040_WEB.jpg" alt="Wedding Pic">
+              <img src="lib/20140111-wedding-4040_WEB.jpg" alt="Wedding Pic">
               <div class="carousel-caption">
                 <h3 class="black-text">Wedding Picture</h3>
                 <p class="black-text">I married my wife at the Oquirrh Mountain Temple in Utah.</p>

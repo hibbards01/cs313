@@ -27,7 +27,7 @@
           <span style="display:none" name="question1" class="glyphicon glyphicon-remove color-red"></span>
           <br />
           <br />
-          <img width="500" height="700" src="campus_map.jpg" alt="Campus Map">
+          <img width="500" height="700" src="lib/campus_map.jpg" alt="Campus Map">
           <div class="btn-group btn-group-vertical" data-toggle="buttons">
             <label class="btn btn-primary">
               <input type="radio" name="question1" value="red">Red
