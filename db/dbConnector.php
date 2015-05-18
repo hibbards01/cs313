@@ -7,7 +7,7 @@
     $dbPort = "";
     $dbUser = "";
     $dbPassword = "";
-    $dbName = "lds";
+    $dbName = "ecen_projects";
 
     $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
 
@@ -37,10 +37,5 @@
     }
 
     return $db;
-  }
-
-  function debug() {
-    $text = "HERE!";
-    return $text;
   }
 ?>
