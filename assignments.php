@@ -25,6 +25,9 @@
                   }
                 ?>">Parking Services Survey</a>
         <a class="align-right" href="submit.php">Click here to see results</a>
+        <br />
+        <br />
+        <a href="ecen_project/index.php">BYU-I ECEN Projects Website</a>
       </div>
     </div>
   </div>
