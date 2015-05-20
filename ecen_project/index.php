@@ -12,6 +12,10 @@
   <link rel="stylesheet" type="text/css" href="../styles/ecen_styles.css">
 </head>
 <body>
-  <h1>Recent Activity</h1>
+  <!-- include the main header -->
+  <?php include_once 'menu_bar.php'; ?>
+  <div class="container top-container">
+    <h1>Recent Activities</h1>
+  </div>
 </body>
 </html>
