@@ -33,7 +33,7 @@
           <a href="current_projects.php">Current Projects</a>
         </li>
         <li class=<?php echo ($is_page === 2) ? "active" : "" ?>>
-          <a href="finished_projects.php">Finished Projects</a>
+          <a href="finished_projects.php">Completed Projects</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
