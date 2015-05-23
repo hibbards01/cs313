@@ -8,9 +8,16 @@
     $is_page = 2;
   } elseif (strpos($page, 'current_projects.php') !== false) {
     $is_page = 1;
+  } elseif (strpos($page, 'details.php') !== false) {
+    $is_page = 3;
   } else {
     $is_page = 0;
   }
+?>
+<?php
+  // Hurry and grab the database!
+  require_once "../db/dbConnector.php";
+  $db = loadDatabase();
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">

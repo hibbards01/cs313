@@ -1,5 +1,7 @@
 .top-container {
   margin-top: 50px;
+  background-color: white;
+
 }
 
 .byui-blue {
@@ -8,6 +10,14 @@
 
 .white {
   color: white;
+}
+
+html, body {
+  background-image: url("http://science.opposingviews.com/DM-Resize/photos.demandstudios.com/getty/article/171/66/87687000.jpg?w=600&h=600&keep_ratio=1");
+}
+
+.inline {
+  display: inline;
 }
 
 /*Got help from this site to customize the navbar*/
