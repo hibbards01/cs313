@@ -10,6 +10,7 @@
   <!-- Latest compiled JavaScript -->
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../styles/ecen_styles.css">
+  <script type="text/javascript" src="../javascripts/ecen_javascript.js" ></script>
 </head>
 <body>
   <!-- include the main header -->

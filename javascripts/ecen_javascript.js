@@ -31,12 +31,7 @@ $(document).ready(function() {
     $("#loginModal").modal();
   });
 
-  // Check if there is any error!
-  // $("#submit").click(function() {
-  //   var error = $("#error").attr("value");
-  //   alert(error);
-  // });
-  $("#error").bind("input", function() {
-    alert("Change to " + this.value);
+  $(".logout").click(function() {
+
   });
 });

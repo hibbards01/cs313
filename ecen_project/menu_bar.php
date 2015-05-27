@@ -20,7 +20,17 @@
   $db = loadDatabase();
 
   // And the login script
-  include "login.php";
+  include_once "login.php";
+
+  session_start();
+  $name = "Sign Up";
+  $is_login = 0;
+
+  // Check if we are logged in!
+  if (isset($_SESSION["username"])) {
+    $name = $_SESSION["name"];
+    $is_login = 1;
+  }
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -41,10 +51,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          <a href="<?php echo ($is_login === 1) ? "profile.php": "sign_up.php"?>">
+            <span class="glyphicon glyphicon-user"></span>
+            &nbsp;<?php echo $name; ?>
+          </a>
         </li>
         <li>
-          <a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <a class="<?php echo ($is_login === 1) ? "logout": "login"?>" href="#">
+          <span class="glyphicon glyphicon-log-in"></span>
+           &nbsp;<?php echo ($is_login === 1) ? "Logout": "Login"; ?>
+          </a>
         </li>
       </ul>
     </div>
@@ -64,14 +80,17 @@
         </div>
         <div class="modal-body">
           <form role="form" action="" method="post">
-            <p><?php echo $error; ?></p>
+            <div class="error">
+              <p>Username or Password is Invalid</span></p>
+              <br />
+            </div>
             <div class="form-group">
               <label for="usrname">Username:</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter username or email">
+              <input name="username" type="text" class="form-control" id="usrname" placeholder="Enter username or email">
             </div>
             <div class="form-group">
               <label for="psw">Password:</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter password">
+              <input name="password" type="password" class="form-control" id="password" placeholder="Enter password">
             </div>
             <input name="submit" type="submit" class="btn btn-default btn-success" id="submit" value=" Login">
           </form>
