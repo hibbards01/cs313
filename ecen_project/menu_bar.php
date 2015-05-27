@@ -58,7 +58,7 @@
         </li>
         <li>
           <a class="<?php echo ($is_login === 1) ? "logout": "login"?>" href="#">
-          <span class="glyphicon glyphicon-log-in"></span>
+          <span class="glyphicon glyphicon-log-<?php echo ($is_login === 1) ? "out": "in" ?>"></span>
            &nbsp;<?php echo ($is_login === 1) ? "Logout": "Login"; ?>
           </a>
         </li>

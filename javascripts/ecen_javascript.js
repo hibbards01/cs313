@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     // Now send the information!
     $.ajax({
-      url: "save_id.php",
+      url: "save_post.php",
       type: "POST",
       data: data,
       success: function() {
@@ -32,6 +32,21 @@ $(document).ready(function() {
   });
 
   $(".logout").click(function() {
+    // Send a post saying to log out!
+    var data = {
+      logout : "1"
+    };
 
+    $.ajax({
+      url: "save_post.php",
+      type: "POST",
+      data: data,
+      success: function() {
+        // Reload the page!
+        // location.reload();
+      }
+    });
+
+    location.reload();
   });
 });
