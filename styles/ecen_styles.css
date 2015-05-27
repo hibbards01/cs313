@@ -20,6 +20,37 @@ html, body {
   display: inline;
 }
 
+.modal-header, .h4-header, .close {
+  background-color: #326ba9;
+  color:white !important;
+  text-align: center;
+  font-size: 30px;
+}
+
+.modal-dialog {
+  width: 400px;
+}
+
+.btn-success {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  background-color: #4685c8;
+}
+
+.btn-success:hover {
+  background-color: #326ba9;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.btn-danger {
+  width: 100%;
+  padding: 10px;
+}
+
 /*Got help from this site to customize the navbar*/
 /*http://work.smarchal.com/twbscolor/css/326ba900ffffecf0f10000000*/
 

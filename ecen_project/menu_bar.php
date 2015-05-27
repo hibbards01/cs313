@@ -18,6 +18,9 @@
   // Hurry and grab the database!
   require_once "../db/dbConnector.php";
   $db = loadDatabase();
+
+  // And the login script
+  include "login.php";
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -41,9 +44,44 @@
           <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
         </li>
         <li>
-          <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <a class="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Show this modal to login the user! -->
+<div class="container">
+  <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="h4-header"><span class="glyphicon glyphicon-log-in"></span> Login</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="" method="post">
+            <p><?php echo $error; ?></p>
+            <div class="form-group">
+              <label for="usrname">Username:</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter username or email">
+            </div>
+            <div class="form-group">
+              <label for="psw">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+            <input name="submit" type="submit" class="btn btn-default btn-success" id="submit" value=" Login">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-defualt btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
