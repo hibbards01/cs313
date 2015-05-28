@@ -10,6 +10,8 @@
     $is_page = 1;
   } elseif (strpos($page, 'details.php') !== false) {
     $is_page = 3;
+  } elseif (strpos($page, 'sign_up.php') !== false) {
+    $is_page = 3;
   } else {
     $is_page = 0;
   }
@@ -86,17 +88,17 @@
             </div>
             <div class="form-group">
               <label for="usrname">Username:</label>
-              <input name="username" type="text" class="form-control" id="usrname" placeholder="Enter username or email">
+              <input name="usrname" type="text" class="form-control" id="usrname" placeholder="Enter username or email">
             </div>
             <div class="form-group">
               <label for="psw">Password:</label>
-              <input name="password" type="password" class="form-control" id="password" placeholder="Enter password">
+              <input name="pssword" type="password" class="form-control" id="password" placeholder="Enter password">
             </div>
             <input name="submit" type="submit" class="btn btn-default btn-success" id="submit" value=" Login">
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-defualt btn-danger" data-dismiss="modal">
+          <button type="submit" class="btn btn-defualt btn-danger big-button" data-dismiss="modal">
             Cancel
           </button>
         </div>

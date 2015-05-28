@@ -13,8 +13,8 @@
       // Now check the database!
 
       // Grab from the post!
-      $user = $_POST["username"];
-      $passwrd = $_POST["password"];
+      $user = $_POST["usrname"];
+      $passwrd = $_POST["pssword"];
       $statement = $db->query("SELECT password, name
                                FROM users WHERE username = '$user';");
 
@@ -25,6 +25,7 @@
         } else {
           $_SESSION["name"] = $row["name"];
           $_SESSION["username"] = $user;
+          $_SESSION['timeout'] = time();
         }
       }
 
@@ -33,6 +34,11 @@
         $error = "3";
       }
     }
+  } elseif (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 1 * 60 < time()) {
+    // Session has expired
+    session_unset();
+    session_destroy();
+    header("Refresh:0");
   }
 ?>
 <!-- Mainly here to check if there was an error. If there was then it -->

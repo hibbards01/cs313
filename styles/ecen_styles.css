@@ -16,10 +16,6 @@ html, body {
   background-image: url("http://science.opposingviews.com/DM-Resize/photos.demandstudios.com/getty/article/171/66/87687000.jpg?w=600&h=600&keep_ratio=1");
 }
 
-.inline {
-  display: inline;
-}
-
 .modal-header, .h4-header, .close {
   background-color: #326ba9;
   color:white !important;
@@ -46,7 +42,7 @@ html, body {
   background-color: #f9f9f9;
 }
 
-.btn-danger {
+.big-button {
   width: 100%;
   padding: 10px;
 }
@@ -54,6 +50,30 @@ html, body {
 .error {
   color: red;
   display: none;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.width-20 {
+  width: 200px;
+}
+
+.inline {
+  display: inline;
+}
+
+.none {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.color-red {
+  color: red;
 }
 
 /*Got help from this site to customize the navbar*/
