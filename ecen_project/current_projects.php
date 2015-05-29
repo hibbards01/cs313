@@ -43,7 +43,7 @@
           $authors = $row['user'];
 
           $pro = $row['name'];
-          echo "<h2><a href='details.php' class='details' id='" . $row['id'] . "'>" . $pro . "</a></h2>";
+          echo "<h2><a href='details.php' class='details' name='none' id='" . $row['id'] . "'>" . $pro . "</a></h2>";
           echo "<h4><span class=\"label label-info\">Team Members:</span></h4>";
 
         } else {

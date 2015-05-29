@@ -8,10 +8,13 @@
     $is_page = 2;
   } elseif (strpos($page, 'current_projects.php') !== false) {
     $is_page = 1;
-  } elseif (strpos($page, 'details.php') !== false) {
+  } elseif (strpos($page, 'details.php') !== false || strpos($page, 'edit.php') !== false ||
+    strpos($page, 'add_new_project.php') !== false) {
     $is_page = 3;
   } elseif (strpos($page, 'sign_up.php') !== false) {
-    $is_page = 3;
+    $is_page = 4;
+  } elseif (strpos($page, 'profile.php') !== false) {
+    $is_page = 4;
   } else {
     $is_page = 0;
   }
@@ -24,7 +27,6 @@
   // And the login script
   include_once "login.php";
 
-  session_start();
   $name = "Sign Up";
   $is_login = 0;
 
@@ -52,7 +54,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li class=<?php echo ($is_page === 4) ? "active" : ""; ?>>
           <a href="<?php echo ($is_login === 1) ? "profile.php": "sign_up.php"?>">
             <span class="glyphicon glyphicon-user"></span>
             &nbsp;<?php echo $name; ?>
@@ -94,7 +96,7 @@
               <label for="psw">Password:</label>
               <input name="pssword" type="password" class="form-control" id="password" placeholder="Enter password">
             </div>
-            <input name="submit" type="submit" class="btn btn-default btn-success" id="submit" value=" Login">
+            <button name="submit" type="submit" class="btn btn-default btn-success" id="submit">Login</button>
           </form>
         </div>
         <div class="modal-footer">

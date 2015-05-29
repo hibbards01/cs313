@@ -12,7 +12,8 @@ $(document).ready(function() {
   $(".details").click(function() {
     // Grab the id!
     var data = {
-      id : $(this).attr("id")
+      id : $(this).attr("id"),
+      name: $(this).attr("name")
     };
 
     // Now send the information!
@@ -103,5 +104,55 @@ $(document).ready(function() {
   // Unless hey hit cancel direct the page to index.php
   $("#cancel").click(function() {
     window.location.href = "index.php";
+  });
+
+  // Check if certain things are being clicked for profile page!
+  $("button[name=about]").click(function() {
+    $("div.projects").css('display', 'none');
+    $("div.about").css('display', 'inline');
+  });
+
+  $("button[name=projects]").click(function() {
+    $("div.about").css('display', 'none');
+    $("div.projects").css('display', 'inline');
+  });
+
+  // Now direct the user to the edit page
+  $("button.edit").click(function() {
+    window.location.href = "edit.php";
+  });
+
+  // Check if certain things are being clicked for profile page!
+  $("button[name=text]").click(function() {
+    $("div.videos").css('display', 'none');
+    // $("div.users").css('display', 'none');
+    $("div.text").css('display', 'inline');
+  });
+
+  $("button[name=videos]").click(function() {
+    $("div.videos").css('display', 'inline');
+    // $("div.users").css('display', 'none');
+    $("div.text").css('display', 'none');
+  });
+
+  // $("button[name=users]").click(function() {
+  //   $("div.videos").css('display', 'none');
+  //   $("div.users").css('display', 'inline');
+  //   $("div.text").css('display', 'none');
+  // });
+
+  $(".alert").click(function() {
+    var id = "#video" + $(this).attr('id');
+
+    // Now show the form!
+    $(id).css('display', 'inline');
+  });
+
+  $("#add_video").click(function() {
+    $("div.add_video").css('display', 'inline');
+  });
+
+  $("button[name=add_new]").click(function() {
+    window.location.href = "add_new_project.php";
   });
 });

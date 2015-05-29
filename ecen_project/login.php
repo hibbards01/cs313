@@ -1,4 +1,3 @@
-<!-- login.php -->
 <?php
   // This will do a script to vailidate the form!
   $error = "0";     // If we encounter any errors!
@@ -7,16 +6,17 @@
   // Now check the post that was made!
   if (isset($_POST['submit'])) {
     // Now check the input boxes!
-    if (empty($_POST['username']) || empty($_POST['password'])) {
+    if (empty($_POST['usrname']) || empty($_POST['pssword'])) {
       $error = "1";
     } else {
       // Now check the database!
-
       // Grab from the post!
       $user = $_POST["usrname"];
       $passwrd = $_POST["pssword"];
-      $statement = $db->query("SELECT password, name
-                               FROM users WHERE username = '$user';");
+      $statement = $db->prepare("SELECT password, name, email
+                               FROM users WHERE username = :user;");
+      $statement->bindValue(':user', $user);
+      $statement->execute();
 
       // Now check it!
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -25,6 +25,7 @@
         } else {
           $_SESSION["name"] = $row["name"];
           $_SESSION["username"] = $user;
+          $_SESSION["email"] = $row["email"];
           $_SESSION['timeout'] = time();
         }
       }
@@ -34,8 +35,8 @@
         $error = "3";
       }
     }
-  } elseif (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 1 * 60 < time()) {
-    // Session has expired
+  } elseif (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 30 * 60 < time()) {
+    // Session has expired after 30 minutes!
     session_unset();
     session_destroy();
     header("Refresh:0");
