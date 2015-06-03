@@ -9,7 +9,7 @@
   } elseif (strpos($page, 'current_projects.php') !== false) {
     $is_page = 1;
   } elseif (strpos($page, 'details.php') !== false || strpos($page, 'edit.php') !== false ||
-    strpos($page, 'add_new_project.php') !== false) {
+    strpos($page, 'add_new_project') !== false) {
     $is_page = 3;
   } elseif (strpos($page, 'sign_up.php') !== false) {
     $is_page = 4;

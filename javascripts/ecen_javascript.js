@@ -155,4 +155,39 @@ $(document).ready(function() {
   $("button[name=add_new]").click(function() {
     window.location.href = "add_new_project.php";
   });
+
+  // This will mainly check the add_new_project and 2 .php
+  $("#create_project").click(function(event) {
+    // Always clear everything from the beginning!
+    $("p.error1").attr('style', 'display: none');
+    $("span[name=error]").css('display', 'none');
+
+    // Check to see if everything is filled!
+    var show_error = 0;
+    var input = $("input[name=project_name]").val().length;
+    var name = $("span[name=project_name]");
+
+    // Now check it!
+    if (input === 0) {
+      // Grab the span tag with given name
+      name.css('display', 'inline');
+      show_error = 1;
+    } else {
+      name.css('display', 'none');
+      show_error = 0;
+    };
+
+    // Now show the last error!
+    if (show_error === 1) {
+      // Show the error message
+      $("p.error1").attr('style', 'display: inline');
+      $("span[name=error]").css('display', 'inline');
+      event.preventDefault();
+    };
+  });
+
+  // Go to the profile.php page if the user clicks cancel
+  $("#cancel_project").click(function() {
+    window.location.href = "profile.php";
+  });
 });

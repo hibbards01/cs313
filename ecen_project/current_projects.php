@@ -20,9 +20,33 @@
     <br />
     <?php
       // Now display all the projects!
-      $pro = "";
-      $authors = "";
-      $ids = array();
+      function checkArray($id, $array)
+      {
+        $found = false;
+        foreach ($array as $value) {
+          if ($value == $id) {
+            $found = true;
+          }
+        }
+
+        return $found;
+      }
+
+      function findIndex($id, $array)
+      {
+        $index = 0;
+        $found = false;
+        foreach ($array as $value) {
+          if ($value == $id) {
+            $found = true;
+          } elseif (!$found) {
+            ++$index;
+          }
+        }
+
+        return $index;
+      }
+
       $statement = $db->query("SELECT p.name AS name,
                                u.name AS user,
                                p.id
@@ -31,28 +55,29 @@
                                JOIN users AS u ON u.id = up.user_id
                                WHERE p.status = '0';");
 
+      $name = array();
+      $id = array();
+      $authors = array();
+      $size = 0;
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         // Grab the project!
-        // Output the header!
-        if ($pro === "" || $pro != $row['name']) {
-          // Now do this to get all the users together!
-          if ($authors !== "") {
-            echo "<p>" . $authors . "</p><br />";
-          }
-
-          $authors = $row['user'];
-
-          $pro = $row['name'];
-          echo "<h2><a href='details.php' class='details' name='none' id='" . $row['id'] . "'>" . $pro . "</a></h2>";
-          echo "<h4><span class=\"label label-info\">Team Members:</span></h4>";
-
+        if (!checkArray($row['id'], $id)) {
+          array_push($id, $row['id']);
+          array_push($name, $row['name']);
+          array_push($authors, $row['user']);
+          $size++;
         } else {
-          $authors .= ", " . $row['user'];
+          // Find the index!
+          $index = findIndex($row['id'], $id);
+          $authors[$index] .= ", " . $row['user'];
         }
       }
 
-      // Output the last of the team members.
-      echo "<p>" . $authors . "</p><br />";
+      for ($i = 0; $i < $size; $i++) {
+        echo "<h2><a href='details.php' class='details' name='none' id='" . $id[$i] . "'>" . $name[$i] . "</a></h2>";
+        echo "<h4><span class=\"label label-info\">Team Members:</span></h4>";
+        echo "<p>" . $authors[$i] . "</p>";
+      }
     ?>
   </div>
 </body>

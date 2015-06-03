@@ -120,5 +120,62 @@
     } else {
       $success = 1;
     }
+  } elseif (isset($_POST['new_project'])) {
+    $name = $_POST['project_name'];
+    $desc = $_POST['project_description'];
+    $status = 0;
+
+    if (isset($_POST['project_status'])) {
+      $status = $_POST['project_status'];
+    }
+
+    // Now prepare the statment
+    $stmt = $db->prepare("INSERT INTO projects (name, description, status)
+                          VALUES (:name, :description, :status);");
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':description', $desc);
+    $stmt->bindValue(':status', $status);
+
+    if (!$stmt->execute()) {
+      require_once "error_writer.php";
+      writeError("ERROR in creating new project");
+    } else {
+      session_start();
+      $_SESSION['project_id'] = $db->lastInsertId();
+      $success = 1;
+    }
+  } elseif (isset($_POST['new_user_videos'])) {
+    // Grab all the videos!
+    session_start();
+    $id = $_SESSION['project_id'];
+    $video_name = $_POST['video_name'];
+    $link = $_POST['link'];
+    $video_desc = $_POST['video_desc'];
+    $users = array();
+
+    foreach ($_POST['users'] as $value) {
+      array_push($users, $value);
+    }
+
+    // Now create two statments!
+    $stmt = $db->prepare("INSERT INTO videos (name, description, link, project_id) VALUES
+                          (:name, :description, :link, :id);");
+
+    $stmt->bindValue(':name', $video_name);
+    $stmt->bindValue(':description', $video_desc);
+    $stmt->bindValue(':link', $link);
+    $stmt->bindValue(':id', $id);
+
+    $stmt->execute();
+
+    foreach ($users as $user) {
+      $stmt2 = $db->prepare("INSERT INTO users_projects (user_id, project_id) VALUES
+                          (:user, :id);");
+      $stmt2->bindValue(':id', $id);
+      $stmt2->bindValue(':user', $user);
+      $stmt2->execute();
+    }
+
+    header("Location: profile.php");
   }
 ?>
