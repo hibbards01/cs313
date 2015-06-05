@@ -6,6 +6,12 @@
   $first = $_POST["first_name"];
   $last = $_POST["last_name"];
 
+  function changeLink($link) {
+    $split = explode('=', $link);
+    $link = "https://www.youtube.com/embed/" . $split[1];
+    return $link;
+  }
+
   if (isset($_POST["username"]) && isset($_POST["password"])) {
     // Now insert into the database!
     $name = $first . " " . $last;
@@ -13,12 +19,14 @@
     $user = $_POST["username"];
     $psswrd = $_POST["password"];
 
+    $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
+
     // Now create the sql statement
     $stmt = $db->prepare("INSERT INTO users (username, password, name, email)
                          VALUES (:user, :psswrd, :name, :email)");
     // Bind the values!
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
-    $stmt->bindValue(':psswrd', $psswrd, PDO::PARAM_STR);
+    $stmt->bindValue(':psswrd', $passHash, PDO::PARAM_STR);
     $stmt->bindValue(':name', $name, PDO::PARAM_STR);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
 
@@ -144,18 +152,43 @@
       $_SESSION['project_id'] = $db->lastInsertId();
       $success = 1;
     }
-  } elseif (isset($_POST['new_user_videos'])) {
+  } elseif (isset($_POST['new_users'])) {
     // Grab all the videos!
+    session_start();
+    $id = $_SESSION['project_id'];
+    $user_id = $_SESSION['user_id'];
+
+    if (isset($_POST['users'])) {
+      $users = array();
+
+      foreach ($_POST['users'] as $value) {
+        array_push($users, $value);
+      }
+
+      foreach ($users as $user) {
+        $stmt2 = $db->prepare("INSERT INTO users_projects (user_id, project_id) VALUES
+                            (:user, :id);");
+        $stmt2->bindValue(':id', $id);
+        $stmt2->bindValue(':user', $user);
+        $stmt2->execute();
+      }
+    }
+
+    // Add the person that created this project!
+    $stmt = $db->prepare("INSERT INTO users_projects (user_id, project_id) VALUES (:user, :id);");
+    $stmt->bindValue(':id', $id);
+    $stmt->bindValue(':user', $user_id);
+    $stmt->execute();
+
+    header("Location: add_new_project_3.php");
+  } elseif (isset($_POST['add_another_video']) || isset($_POST['finish_videos'])) {
+    // Grab the videos!
     session_start();
     $id = $_SESSION['project_id'];
     $video_name = $_POST['video_name'];
     $link = $_POST['link'];
     $video_desc = $_POST['video_desc'];
-    $users = array();
-
-    foreach ($_POST['users'] as $value) {
-      array_push($users, $value);
-    }
+    $link = changeLink($link);
 
     // Now create two statments!
     $stmt = $db->prepare("INSERT INTO videos (name, description, link, project_id) VALUES
@@ -165,17 +198,10 @@
     $stmt->bindValue(':description', $video_desc);
     $stmt->bindValue(':link', $link);
     $stmt->bindValue(':id', $id);
-
     $stmt->execute();
 
-    foreach ($users as $user) {
-      $stmt2 = $db->prepare("INSERT INTO users_projects (user_id, project_id) VALUES
-                          (:user, :id);");
-      $stmt2->bindValue(':id', $id);
-      $stmt2->bindValue(':user', $user);
-      $stmt2->execute();
+    if (isset($_POST['finish_videos'])) {
+      header("Location: profile.php");
     }
-
-    header("Location: profile.php");
   }
 ?>

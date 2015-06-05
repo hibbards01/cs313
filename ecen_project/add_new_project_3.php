@@ -1,4 +1,4 @@
-<!-- add_new_project_2.php -->
+<!-- add_new_project_3.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,27 +25,16 @@
   ?>
   <div class="container top-container">
     <form role="form" method="post" action="">
+      <h2>Enter video information here</h2>
       <?php
-        require_once "../db/select_from_database.php";
-
-        // Grab the users!
-        $users = grabAllUsers($db);
-
-        if (isset($users)) {
-          echo "<h3>Click on users you want to add to the project</h3>";
-
-          // Now output all the users!;
-          foreach ($users as $key => $value) {
-            echo "<div class=\"checkbox\">" .
-                  "<label><input name=\"users[]\" type=\"checkbox\" value=\"" . $value . "\">" . $key . "</label>" .
-                "</div>";
-          }
-        } else {
-          echo "<h3>No other users currently to add click next to add videos</h3>";
-        }
+        require_once 'add_new_video.php';
       ?>
+      <p class="color-red" id="link_error_1" style="display:none">Your link must be a youtube url</p>
+      <br />
+      <br />
       <button type="button" id="cancel_project" class="btn btn-danger">Cancel</button>&nbsp;&nbsp;
-      <button name="new_users" type="submit" id="finish_project" class="btn btn-primary">Next</button>
+      <button name="add_another_video" type="submit" id="add_another_video" class="btn btn-info">Add Another Video</button>&nbsp;&nbsp;
+      <button name="finish_videos" type="submit" id="finish_project" class="btn btn-primary">Finish</button>
       <br />
       <br />
     </form>

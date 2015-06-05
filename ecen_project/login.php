@@ -13,26 +13,36 @@
       // Grab from the post!
       $user = $_POST["usrname"];
       $passwrd = $_POST["pssword"];
-      $statement = $db->prepare("SELECT password, name, email
+      $name;
+      $email;
+      $id;
+      $statement = $db->prepare("SELECT password, name, email, id
                                FROM users WHERE username = :user;");
       $statement->bindValue(':user', $user);
       $statement->execute();
 
       // Now check it!
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        if ($row["password"] !== $passwrd) {
-          $error = "2";
-        } else {
-          $_SESSION["name"] = $row["name"];
-          $_SESSION["username"] = $user;
-          $_SESSION["email"] = $row["email"];
-          $_SESSION['timeout'] = time();
-        }
+        $passwordHash = $row['password'];
+        $name = $row['name'];
+        $email = $row['email'];
+        $id = $row['id'];
+      }
+
+      if (isset($passwordHash) && password_verify($passwrd, $passwordHash)) {
+        $_SESSION["name"] = $name;
+        $_SESSION["username"] = $user;
+        $_SESSION["email"] = $email;
+        $_SESSION['timeout'] = time();
+        $_SESSION['user_id'] = $id;
+      }
+      else {
+        $error = '2';
       }
 
       // Check if it was set!
       if (!isset($_SESSION["name"])) {
-        $error = "3";
+        $error = '3';
       }
     }
   } elseif (isset($_SESSION['timeout']) && $_SESSION['timeout'] + 30 * 60 < time()) {

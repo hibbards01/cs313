@@ -4,8 +4,8 @@
   <input name="video_name" type="text" class="form-control width-20"/>
 </div>
 <div class="form-group">
-  <label>Link:</label>
-  <input name="link" type="text" class="form-control width-50" />
+  <label>Youtube URL:</label><span style="display:none" id="link_error" class="glyphicon glyphicon-remove color-red"></span>
+  <input id="link" name="link" type="text" class="form-control width-50" />
 </div>
 <div class="form-group">
   <label>Description:</label>

@@ -1,13 +1,11 @@
 <?php
   // This will change will part of the website is active
-  $is_page = 0;
+  $is_page = 1;
   $page = $_SERVER['REQUEST_URI'];
 
   // Where is the user?
   if (strpos($page, 'finished_projects.php') !== false) {
     $is_page = 2;
-  } elseif (strpos($page, 'current_projects.php') !== false) {
-    $is_page = 1;
   } elseif (strpos($page, 'details.php') !== false || strpos($page, 'edit.php') !== false ||
     strpos($page, 'add_new_project') !== false) {
     $is_page = 3;
@@ -16,7 +14,7 @@
   } elseif (strpos($page, 'profile.php') !== false) {
     $is_page = 4;
   } else {
-    $is_page = 0;
+    $is_page = 1;
   }
 ?>
 <?php
@@ -43,11 +41,8 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li class=<?php echo ($is_page === 0) ? "active" : "" ?>>
-          <a href="index.php">Recent Activity</a>
-        </li>
         <li class=<?php echo ($is_page === 1) ? "active" : "" ?>>
-          <a href="current_projects.php">Current Projects</a>
+          <a href="index.php">Current Projects</a>
         </li>
         <li class=<?php echo ($is_page === 2) ? "active" : "" ?>>
           <a href="finished_projects.php">Completed Projects</a>

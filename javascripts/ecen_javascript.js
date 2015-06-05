@@ -190,4 +190,26 @@ $(document).ready(function() {
   $("#cancel_project").click(function() {
     window.location.href = "profile.php";
   });
+
+  // Check the link!
+  $("button").click(function() {
+    var id = $(this).attr('id');
+
+    if (id == 'add_another_video' ||
+      id == 'finish_project') {
+
+      // Now check the link!
+      var link = $("#link").val();
+      var size = link.match(/www.youtube.com/);
+
+      if (size === "" || size === null) {
+        $("#link_error").css('display', 'inline');
+        $("#link_error_1").attr('style', 'display: inline');
+        event.preventDefault();
+      } else {
+        $("#link_error").css('display', 'none');
+        $("#link_error_1").attr('style', 'display: none');
+      };
+    };
+  });
 });
