@@ -19,7 +19,7 @@
     $psswrd = $_POST["password"];
 
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
-
+    echo "$name  $email  $user  $psswrd";
     // Now create the sql statement
     $stmt;
     if (isset($_POST['is_faculty'])) {
