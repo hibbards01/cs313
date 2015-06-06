@@ -13,16 +13,17 @@
   echo "HERE";
     echo "<pre>";
     print_r($_POST);
+    print_r(isset($_POST['signUp']));
     echo "</pre>";
   if (isset($_POST['signUp'])) {
     // Now insert into the database!
+    echo "HERE!!!!!";
     $name = $first . " " . $last;
     $email = $_POST["email"];
     $user = $_POST["username"];
     $psswrd = $_POST["password"];
 
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
-    echo "HERE!!!!!  $name  $email  $user  $psswrd";
     // Now create the sql statement
     $stmt;
     if (isset($_POST['is_faculty'])) {
