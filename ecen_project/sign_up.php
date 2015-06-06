@@ -71,7 +71,7 @@
       <span style="display:none" name="error" class="glyphicon glyphicon-remove color-red"></span>
       <br />
       <br />
-      <button type="submit" id="signUp" class="btn btn-primary">Submit</button>
+      <button type="submit" id="signUp" name="signUp" class="btn btn-primary">Submit</button>
       <button type="button" id="cancel" class="btn btn-danger">Cancel</button>
       <br />
       <br />

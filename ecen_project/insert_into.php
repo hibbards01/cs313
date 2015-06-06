@@ -11,7 +11,7 @@
     return $link;
   }
   echo "HERE";
-  if (isset($_POST["username"]) && isset($_POST["password"])) {
+  if (isset($_POST['signUp'])) {
     // Now insert into the database!
     $name = $first . " " . $last;
     $email = $_POST["email"];
