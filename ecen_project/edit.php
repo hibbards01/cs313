@@ -73,7 +73,7 @@
       </div>
       <div class="form-group">
         <label>Status:</label>
-        <div class="checkbox">
+        <div class="checkbox" name="status">
           <input name="status" <?php echo ($project['status'] == 1) ? "checked" : ""; ?> type="checkbox" data-toggle="toggle" data-on="Completed" data-off="In Progress" data-onstyle="default" data-offstyle="primary">
         </div>
       </div>

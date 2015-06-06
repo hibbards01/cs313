@@ -30,7 +30,7 @@
     <form role="form" action="" method="post">
       <div class="form-group">
         <label>Are you a faculty?</label>
-        <div class="checkbox">
+        <div class="checkbox" name="isFaculty">
           <input id="isFaculty" name="is_faculty" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="warning" data-offstyle="default">
         </div>
       </div>

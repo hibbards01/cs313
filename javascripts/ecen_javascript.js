@@ -218,7 +218,11 @@ $(document).ready(function() {
   });
 
   $(".toggle-off").click(function() {
-    $("#check-faculty").modal();
+    var name = $("div.checkbox").attr('name');
+
+    if (name === "isFaculty") {
+      $("#check-faculty").modal();
+    };
   });
 
   // Toggle off if canceled!
