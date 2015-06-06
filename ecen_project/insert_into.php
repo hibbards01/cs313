@@ -22,7 +22,8 @@
     $email = $_POST["email"];
     $user = $_POST["username"];
     $psswrd = $_POST["password"];
-
+    echo "DEBUG000";
+    echo $psswrd;
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
     echo "DEBUG00";
     // Now create the sql statement
