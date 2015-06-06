@@ -125,6 +125,7 @@
     $name = $_POST['video_name'];
     $desc = $_POST['video_desc'];
     $link = $_POST['link'];
+    $link = changeLink($link);
 
     // Now prepare the statment
     $stmt = $db->prepare("INSERT INTO videos (name, description, link, project_id)
