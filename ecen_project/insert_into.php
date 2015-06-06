@@ -10,24 +10,17 @@
     $link = "https://www.youtube.com/embed/" . $split[1];
     return $link;
   }
-  echo "HERE";
-    echo "<pre>";
-    print_r($_POST);
-    print_r(isset($_POST['signUp']));
-    echo "</pre>";
+
   if (isset($_POST['signUp'])) {
     // Now insert into the database!
-    echo "HERE!!!!!";
     $name = $first . " " . $last;
     $email = $_POST["email"];
     $user = $_POST["username"];
     $psswrd = $_POST["password"];
-    echo "DEBUG000";
-    echo $psswrd;
+
     require_once "password_hash.php";
-    echo password_hash($psswrd, PASSWORD_DEFAULT);
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
-    echo $passHash;
+
     // Now create the sql statement
     $stmt;
     if (isset($_POST['is_faculty'])) {
@@ -40,7 +33,6 @@
     }
 
     // Bind the values!
-    echo "DEBUG1";
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
     $stmt->bindValue(':psswrd', $passHash, PDO::PARAM_STR);
     $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -49,10 +41,8 @@
     // Now execute the code!
     if (!$stmt->execute()) {
       $error = 1;
-      echo "DEBUG2";
     } else {
       // Log in the person!
-      echo "DEBUG3";
       session_start();
       $_SESSION["name"] = $name;
       $_SESSION["username"] = $user;
@@ -63,7 +53,6 @@
         $_SESSION['is_faculty'] = true;
       }
 
-      echo "DEBUG4";
       // Redirect to the profile page
       $success = 1;
     }
