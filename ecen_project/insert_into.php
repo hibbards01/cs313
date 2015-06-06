@@ -30,11 +30,13 @@
       $stmt = $db->prepare("INSERT INTO users (username, password, name, email, is_faculty)
                          VALUES (:user, :psswrd, :name, :email, '1');");
     } else {
+      echo "DEBUG";
       $stmt = $db->prepare("INSERT INTO users (username, password, name, email)
                          VALUES (:user, :psswrd, :name, :email);");
     }
 
     // Bind the values!
+    echo "DEBUG1";
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
     $stmt->bindValue(':psswrd', $passHash, PDO::PARAM_STR);
     $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -43,8 +45,10 @@
     // Now execute the code!
     if (!$stmt->execute()) {
       $error = 1;
+      echo "DEBUG2";
     } else {
       // Log in the person!
+      echo "DEBUG3";
       session_start();
       $_SESSION["name"] = $name;
       $_SESSION["username"] = $user;
@@ -55,6 +59,7 @@
         $_SESSION['is_faculty'] = true;
       }
 
+      echo "DEBUG4";
       // Redirect to the profile page
       $success = 1;
     }
