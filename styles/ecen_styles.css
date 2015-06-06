@@ -1,7 +1,8 @@
 .top-container {
   margin-top: 50px;
   background-color: white;
-
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .byui-blue {
