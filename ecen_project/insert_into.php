@@ -91,6 +91,7 @@
     $name = $_POST['video_name' . $id];
     $desc = $_POST['video_desc' . $id];
     $link = $_POST['link' . $id];
+    $link = changeLink($link);
 
     // Now prepare the statment
     $stmt = $db->prepare("UPDATE videos SET name=:name, description=:description, link=:link WHERE id=:id;");
