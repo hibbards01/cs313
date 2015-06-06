@@ -10,7 +10,7 @@
     $link = "https://www.youtube.com/embed/" . $split[1];
     return $link;
   }
-
+  echo "HERE";
   if (isset($_POST["username"]) && isset($_POST["password"])) {
     // Now insert into the database!
     $name = $first . " " . $last;
@@ -19,7 +19,7 @@
     $psswrd = $_POST["password"];
 
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
-    echo "$name  $email  $user  $psswrd";
+    echo "HERE!!!!!  $name  $email  $user  $psswrd";
     // Now create the sql statement
     $stmt;
     if (isset($_POST['is_faculty'])) {
