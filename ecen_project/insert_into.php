@@ -24,6 +24,7 @@
     $psswrd = $_POST["password"];
     echo "DEBUG000";
     echo $psswrd;
+    require_once "password_hash.php";
     echo password_hash($psswrd, PASSWORD_DEFAULT);
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
     echo $passHash;

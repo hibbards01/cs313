@@ -4,8 +4,10 @@
   $header = "0";
   session_start();  // Start the session!
 
-  // Now check the post that was made!
+  require_once "password_hash.php";
+
   if (isset($_POST['submit']) || isset($_POST['submit_password'])) {
+  // Now check the post that was made!
     // Now check the input boxes!
     if (isset($_POST['submit_password'])) {
 
@@ -16,6 +18,7 @@
       while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $passwordHash = $row['password'];
       }
+
 
       if (isset($passwordHash) && !password_verify($passwrd, $passwordHash)) {
         $error = '4';
