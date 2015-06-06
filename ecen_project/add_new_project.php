@@ -22,12 +22,11 @@
     require_once "insert_into.php";
 
     if (!isset($_SESSION['name'])) {
-      header('Location: index.php');
+      echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
     }
 
     if ($success == 1) {
-      echo "HERE2";
-      header('Location: add_new_project_2.php');
+      echo "<script type='text/javascript'>window.location.href = 'add_new_project_2.php';</script>";
     }
   ?>
   <div class="container top-container">

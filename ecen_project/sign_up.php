@@ -8,6 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../styles/ecen_styles.css">
   <script type="text/javascript" src="../javascripts/ecen_javascript.js" ></script>
 </head>
@@ -16,12 +18,22 @@
   <?php
     include_once 'menu_bar.php';
     include_once "insert_into.php";
+
+    if ($success == 1) {
+      echo "<script type='text/javascript'>window.location.href = 'profile.php';</script>";
+    }
   ?>
   <div class="container top-container">
     <h1>Sign Up</h1>
     <br />
     <p><font color="red">***</font> All Feilds Required <font color="red">***</font></p>
     <form role="form" action="" method="post">
+      <div class="form-group">
+        <label>Are you a faculty?</label>
+        <div class="checkbox">
+          <input id="isFaculty" name="is_faculty" type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="warning" data-offstyle="default">
+        </div>
+      </div>
       <div class="form-group inline-block">
         <label>First Name:</label><span style="display:none" name="first_name" class="glyphicon glyphicon-remove color-red"></span>
         <input class="form-control width-20" name="first_name" type="text" placeholder="Type first name"

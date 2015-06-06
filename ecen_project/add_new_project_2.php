@@ -20,7 +20,11 @@
    ?>
   <?php
     if (!isset($_SESSION['name'])) {
-      header('Location: index.php');
+      echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+    }
+
+    if ($success == 1) {
+      echo "<script type='text/javascript'>window.location.href = 'add_new_project_3.php';</script>";
     }
   ?>
   <div class="container top-container">

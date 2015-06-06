@@ -32,7 +32,19 @@
     <br />
     <br />
     <div class="about none">
-      <h4>Email: <?php echo $_SESSION["email"]; ?></h4>
+      <h4>Email:
+        <?php
+          $stmt = $db->prepare("SELECT email FROM users WHERE username=:user;");
+          $stmt->bindValue(':user', $_SESSION['username']);
+          $stmt->execute();
+
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $email = $row['email'];
+          }
+
+          echo $email;
+        ?>
+      </h4>
     </div>
     <div class="projects none">
       <h3>Projects:</h3>
@@ -41,13 +53,18 @@
         // Display all the projects!
         // Now display all the projects!
         $ids = array();
-        $statement = $db->prepare("SELECT p.name AS name,
+        $statement;
+        if ($_SESSION['is_faculty']) {
+          $statement = $db->prepare("SELECT name, id FROM projects;");
+        } else {
+          $statement = $db->prepare("SELECT p.name AS name,
                                  p.id
                                  FROM projects AS p
                                  JOIN users_projects AS up ON p.id = up.project_id
                                  JOIN users AS u ON u.id = up.user_id
                                  WHERE u.username = :user;");
-        $statement->bindValue(':user', $_SESSION['username']);
+          $statement->bindValue(':user', $_SESSION['username']);
+        }
         $statement->execute();
 
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

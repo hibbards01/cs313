@@ -8,6 +8,10 @@
   background-color: #326ba9;
 }
 
+.faculty {
+  display: none;
+}
+
 .white {
   color: white;
 }
@@ -21,6 +25,10 @@ html, body {
   color:white !important;
   text-align: center;
   font-size: 30px;
+}
+
+.orange {
+  background-color: #f0ad4e !important;
 }
 
 .move-right {
@@ -54,7 +62,12 @@ html, body {
   padding: 10px;
 }
 
-.error {
+.login-error {
+  color: red;
+  display: none;
+}
+
+.pass-error {
   color: red;
   display: none;
 }

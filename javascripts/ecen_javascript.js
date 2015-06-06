@@ -47,7 +47,7 @@ $(document).ready(function() {
       }
     });
 
-    location.reload();
+    window.location.href = 'index.php';
   });
 
   // Check the content on the signup form
@@ -125,27 +125,31 @@ $(document).ready(function() {
   // Check if certain things are being clicked for profile page!
   $("button[name=text]").click(function() {
     $("div.videos").css('display', 'none');
-    // $("div.users").css('display', 'none');
+    $("div.users").css('display', 'none');
     $("div.text").css('display', 'inline');
   });
 
   $("button[name=videos]").click(function() {
     $("div.videos").css('display', 'inline');
-    // $("div.users").css('display', 'none');
+    $("div.users").css('display', 'none');
     $("div.text").css('display', 'none');
   });
 
-  // $("button[name=users]").click(function() {
-  //   $("div.videos").css('display', 'none');
-  //   $("div.users").css('display', 'inline');
-  //   $("div.text").css('display', 'none');
-  // });
+  $("button[name=users]").click(function() {
+    $("div.videos").css('display', 'none');
+    $("div.users").css('display', 'inline');
+    $("div.text").css('display', 'none');
+  });
 
   $(".alert").click(function() {
     var id = "#video" + $(this).attr('id');
 
     // Now show the form!
-    $(id).css('display', 'inline');
+    if ($(id).css('display') == 'none') {
+      $(id).css('display', 'inline');
+    } else {
+      $(id).css('display', 'none');
+    };
   });
 
   $("#add_video").click(function() {
@@ -211,5 +215,22 @@ $(document).ready(function() {
         $("#link_error_1").attr('style', 'display: none');
       };
     };
+  });
+
+  $(".toggle-off").click(function() {
+    $("#check-faculty").modal();
+  });
+
+  // Toggle off if canceled!
+  $(".orange").click(function() {
+    $("div.toggle").addClass('off');
+  });
+
+  $(".btn-danger").click(function() {
+    $("div.toggle").addClass('off');
+  });
+
+  $(".fade").click(function() {
+    $("div.toggle").addClass('off');
   });
 });

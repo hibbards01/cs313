@@ -42,7 +42,7 @@
         $(document).ready(function() {
           $("#success").removeClass('hide');
           $("#success").addClass('fade in');
-          $("#success").fadeOut(10000);
+          $("#success").fadeOut(5000);
         });
       };
     </script>
@@ -57,6 +57,7 @@
     <div class="btn-group">
       <button name="text" type="button" class="btn btn-primary byui-blue">Text</button>
       <button name="videos" type="button" class="btn btn-primary byui-blue">Videos</button>
+      <button name="users" type="button" class="btn btn-primary byui-blue <?php echo (isset($_SESSION['is_faculty'])) ? "" : "faculty"; ?>">Users</button>
     </div>
     <br />
     <br />
@@ -130,6 +131,60 @@
       </div>
       <br />
       <br />
+    </div>
+    <div name="users" class="users none">
+      <form role="form" method="post" action="">
+        <?php
+          require_once "../db/select_from_database.php";
+
+          // Grab the users!
+          $id = $_SESSION['id'];
+          $users = grabAllUsers($db);
+
+          // Grab all the current users for this project!
+          $current_users = grabUsersForProject($db, $id);
+
+          if (isset($users)) {
+            echo "<h3>Click on users you want to add or remove from the project</h3>";
+
+            // Creating a function to be used during the loop
+            function isTeamMember($users, $name) {
+              $is = false;
+
+              // Now loop through the function
+              foreach ($users as $user) {
+                if ($user == $name) {
+                  $is = true;
+                }
+              }
+
+              return $is;
+            }
+
+            // Now output all the users!;
+            foreach ($users as $key => $value) {
+              $str = "<div class=\"checkbox\">" .
+                       "<label><input ";
+
+              if (isTeamMember($current_users['name'], $key)) {
+                $str .= "checked='checked' ";
+              }
+
+              $str .= "name=\"users[]\" type=\"checkbox\" value=\"" . $value . "\">" . $key . "</label>" .
+                      "</div>";
+
+              echo $str;
+            }
+          } else {
+            echo "<h3>No other users currently to add click next to add videos</h3>";
+          }
+        ?>
+        <br />
+        <br />
+        <button name="edit_users" type="submit" class="btn btn-primary byui-blue" value="<?php echo $project['id']; ?>">Save</button>
+        <br />
+        <br />
+      </form>
     </div>
   </div>
 </body>

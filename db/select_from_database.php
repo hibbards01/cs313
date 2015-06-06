@@ -8,8 +8,7 @@
   function grabAllUsers($db) {
     session_start();
     $user = $_SESSION['username'];
-
-    $stmt = $db->prepare("SELECT name, id FROM users WHERE username != :user;");
+    $stmt = $db->prepare("SELECT name, id FROM users WHERE username != :user AND username != 'adminECENuser' AND is_faculty = '0';");
     $stmt->bindValue(':user', $user);
     $stmt->execute();
 

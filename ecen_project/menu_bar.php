@@ -79,7 +79,7 @@
         </div>
         <div class="modal-body">
           <form role="form" action="" method="post">
-            <div class="error">
+            <div class="login-error">
               <p>Username or Password is Invalid</span></p>
               <br />
             </div>
@@ -98,6 +98,36 @@
           <button type="submit" class="btn btn-defualt btn-danger big-button" data-dismiss="modal">
             Cancel
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="modal fade" id="check-faculty" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header orange">
+          <button type="button" class="orange close" data-dismiss="modal">&times;</button>
+          <h3 class="h4-header orange"><span class="glyphicon glyphicon-lock"></span> You must enter a password to verify you are a faculty member</h3>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="" method="post">
+            <div class="pass-error">
+              <p>Password is Invalid</span></p>
+              <br />
+            </div>
+            <div class="form-group">
+              <label for="psw">Password:</label>
+              <input name="verify_password" type="password" class="form-control" placeholder="Enter password">
+            </div>
+            <button name="submit_password" type="submit" class="btn btn-default btn-success" id="submit_password">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-danger big-button" data-dismiss='modal'>Cancel</button>
         </div>
       </div>
     </div>

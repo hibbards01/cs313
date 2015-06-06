@@ -24,7 +24,11 @@
       } else {
         // Grab the id!
         $id = $_SESSION['id'];
-        $is_edit = ($_SESSION['edit'] === "edit") ? 1 : 0;
+        $is_edit = 0;
+
+        if ($_SESSION['edit'] === "edit" || isset($_SESSION['is_faculty'])) {
+          $is_edit = 1;
+        }
 
         // And the info!
         require_once "../db/select_from_database.php";
@@ -41,6 +45,12 @@
             $count++;
           } else {
             $combineUsers .= ", " . $name;
+          }
+        }
+
+        foreach ($users['id'] as $user_id) {
+          if ($user_id == $_SESSION['user_id']) {
+            $is_edit = 1;
           }
         }
       }

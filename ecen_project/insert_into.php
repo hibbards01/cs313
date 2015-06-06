@@ -1,4 +1,3 @@
-<!-- insert_into.php -->
 <?php
   // Grab the values from the post!
   $error = 0; // Hopefully no errors occur...
@@ -22,8 +21,15 @@
     $passHash = password_hash($psswrd, PASSWORD_DEFAULT);
 
     // Now create the sql statement
-    $stmt = $db->prepare("INSERT INTO users (username, password, name, email)
-                         VALUES (:user, :psswrd, :name, :email)");
+    $stmt;
+    if (isset($_POST['is_faculty'])) {
+      $stmt = $db->prepare("INSERT INTO users (username, password, name, email, is_faculty)
+                         VALUES (:user, :psswrd, :name, :email, '1');");
+    } else {
+      $stmt = $db->prepare("INSERT INTO users (username, password, name, email)
+                         VALUES (:user, :psswrd, :name, :email);");
+    }
+
     // Bind the values!
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
     $stmt->bindValue(':psswrd', $passHash, PDO::PARAM_STR);
@@ -39,9 +45,14 @@
       $_SESSION["name"] = $name;
       $_SESSION["username"] = $user;
       $_SESSION['timeout'] = time();
+      $_SESSION['user_id'] = $db->lastInsertId();
+
+      if (isset($_POST['is_faculty'])) {
+        $_SESSION['is_faculty'] = true;
+      }
 
       // Redirect to the profile page
-      header('Location: profile.php');
+      $success = 1;
     }
   } elseif (isset($_POST['description']) && isset($_POST['name'])) {
     // Update the project!
@@ -134,7 +145,7 @@
     $status = 0;
 
     if (isset($_POST['project_status'])) {
-      $status = $_POST['project_status'];
+      $status = 1;
     }
 
     // Now prepare the statment
@@ -179,8 +190,7 @@
     $stmt->bindValue(':id', $id);
     $stmt->bindValue(':user', $user_id);
     $stmt->execute();
-
-    header("Location: add_new_project_3.php");
+    $success = 1;
   } elseif (isset($_POST['add_another_video']) || isset($_POST['finish_videos'])) {
     // Grab the videos!
     session_start();
@@ -201,7 +211,50 @@
     $stmt->execute();
 
     if (isset($_POST['finish_videos'])) {
-      header("Location: profile.php");
+      $success = 1;
+    }
+  } elseif (isset($_POST['edit_users'])) {
+    $project_id = $_POST['edit_users'];
+    $users_ids = $_POST['users'];
+
+    // A function for the loop!
+    function checkArray($array, $id) {
+      $is = true;
+
+      foreach ($array as $value) {
+        if ($value == $id) {
+          $is = false;
+        }
+      }
+
+      return $is;
+    }
+
+    // Loop through all the users!
+    // Grab all the users really quick!
+    require_once "../db/select_from_database.php";
+    $current_users = grabUsersForProject($db, $project_id);
+
+    // Now do the loop!
+    foreach ($users_ids as $id) {
+      // We have a new user!
+      if (checkArray($current_users['id'], $id)) {
+        $stmt = $db->prepare("INSERT INTO users_projects (user_id, project_id) VALUES (:user, :id);");
+        $stmt->bindValue(':user', $id);
+        $stmt->bindValue(':id', $project_id);
+        $stmt->execute();
+        $success = 1;
+      }
+    }
+
+    foreach ($current_users['id'] as $id) {
+      if (checkArray($users_ids, $id)) {
+        // Delete the user!
+        $stmt = $db->prepare("DELETE FROM users_projects WHERE user_id=:id;");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $success = 1;
+      }
     }
   }
 ?>
