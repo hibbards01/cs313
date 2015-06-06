@@ -11,6 +11,9 @@
     return $link;
   }
   echo "HERE";
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
   if (isset($_POST['signUp'])) {
     // Now insert into the database!
     $name = $first . " " . $last;
