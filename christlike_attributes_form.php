@@ -214,7 +214,7 @@
             <p>25. <input class="form-control" type="text" name="25" maxlength="1">&nbsp;&nbsp;&nbsp;I have no desire to do evil but to do good. (Mosiah 5:2)</p>
           </div>
           <div class="form-group">
-            <p>26. <input class="form-control" type="text" name="26" maxlength="1">&nbsp;&nbsp;&nbsp;I am dependable—I do what I say I will do. (Alma 53:20)</p>
+            <p>26. <input class="form-control" type="text" name="26" maxlength="1">&nbsp;&nbsp;&nbsp;I am dependable&#8212;I do what I say I will do. (Alma 53:20)</p>
           </div>
           <div class="form-group">
             <p>27. <input class="form-control" type="text" name="27" maxlength="1">&nbsp;&nbsp;&nbsp;I focus on righteous, uplifting thoughts and put unwholesome thoughts out of my mind. (D&amp;C 121:45)</p>
@@ -289,7 +289,7 @@
             <p>45. <input class="form-control" type="text" name="45" maxlength="1">&nbsp;&nbsp;&nbsp;I appreciate direction from my leaders or teachers. (2 Nephi 9:28)</p>
           </div>
           <div class="form-group">
-            <p>46. <input class="form-control" type="text" name="46" maxlength="1">&nbsp;&nbsp;&nbsp;I strive to be submissive to the Lord’s will, whatever it may be. (Mosiah 24:15)</p>
+            <p>46. <input class="form-control" type="text" name="46" maxlength="1">&nbsp;&nbsp;&nbsp;I strive to be submissive to the Lord&rsquo;s will, whatever it may be. (Mosiah 24:15)</p>
           </div>
         </div>
       </div>
@@ -297,7 +297,7 @@
         <div class="panel-heading">Diligence</div>
         <div class="panel-body">
           <div class="form-group">
-            <p>47. <input class="form-control" type="text" name="47" maxlength="1">&nbsp;&nbsp;&nbsp;I work effectively, even when I’m not under pressure or close supervision. (D&amp;C 58:26&#8212;27)</p>
+            <p>47. <input class="form-control" type="text" name="47" maxlength="1">&nbsp;&nbsp;&nbsp;I work effectively, even when I&rsquo;m not under pressure or close supervision. (D&amp;C 58:26&#8212;27)</p>
           </div>
           <div class="form-group">
             <p>48. <input class="form-control" type="text" name="48" maxlength="1">&nbsp;&nbsp;&nbsp;I focus my efforts on the most important things. (Matthew 23:23)</p>
